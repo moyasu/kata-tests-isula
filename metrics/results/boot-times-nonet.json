@@ -1,0 +1,330 @@
+{
+	"@timestamp" : 1585099035515,
+	"env" : {
+		"RuntimeVersion": "1.7.0",
+		"RuntimeCommit": "bc241b095f95e734066dd2797374e567a5915f14",
+		"RuntimeConfig": "/usr/share/defaults/kata-containers/configuration.toml",
+		"Hypervisor": "/usr/bin/qemu-kvm",
+		"HypervisorVersion": "  QEMU emulator version 4.0.1 (qemu-4.0.1-11.oe1)\nCopyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers",
+		"Proxy": "/usr/bin/kata-proxy",
+		"ProxyVersion": "1.7.0-a5c8cf7945995d382a5b721c4bf82a82ba1259ae",
+		"Shim": "/usr/bin/kata-shim",
+		"ShimVersion": "  kata-shim version 1.7.0-d5e39b0fe54ad5c0d75d564229da5c91a7057e38",
+		"machinename": "isuladtest"
+	},
+	"date" : {
+		"ns": 1585099035520485421,
+		"Date": "2020-03-25T01:17:15.525"
+	},
+	"test" : {
+		"runtime": "kata-runtime",
+		"testname": "boot times nonet"
+	},
+	"kata-env" :
+	{
+  "Meta": {
+    "Version": "1.0.23"
+  },
+  "Runtime": {
+    "Version": {
+      "Semver": "1.7.0",
+      "Commit": "bc241b095f95e734066dd2797374e567a5915f14",
+      "OCI": "1.0.1-dev"
+    },
+    "Config": {
+      "Path": "/usr/share/defaults/kata-containers/configuration.toml"
+    },
+    "Debug": true,
+    "Trace": false,
+    "DisableGuestSeccomp": true,
+    "DisableNewNetNs": false,
+    "Experimental": null,
+    "Path": "/usr/bin/kata-runtime"
+  },
+  "Hypervisor": {
+    "MachineType": "virt",
+    "Version": "QEMU emulator version 4.0.1 (qemu-4.0.1-11.oe1)\nCopyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers",
+    "Path": "/usr/bin/qemu-kvm",
+    "BlockDeviceDriver": "virtio-scsi",
+    "EntropySource": "/dev/urandom",
+    "Msize9p": 8192,
+    "MemorySlots": 10,
+    "Debug": true,
+    "UseVSock": false,
+    "SharedFS": "virtio-9p"
+  },
+  "Image": {
+    "Path": ""
+  },
+  "Kernel": {
+    "Path": "/var/lib/kata/kernel",
+    "Parameters": "agent.log=debug agent.log=debug pcie_ports=native pci=pcie_bus_perf"
+  },
+  "Initrd": {
+    "Path": "/var/lib/kata/kata-containers-initrd.img"
+  },
+  "Proxy": {
+    "Type": "kataProxy",
+    "Version": "kata-proxy version 1.7.0-a5c8cf7945995d382a5b721c4bf82a82ba1259ae",
+    "Path": "/usr/bin/kata-proxy",
+    "Debug": true
+  },
+  "Shim": {
+    "Type": "kataShim",
+    "Version": "kata-shim version 1.7.0-d5e39b0fe54ad5c0d75d564229da5c91a7057e38",
+    "Path": "/usr/bin/kata-shim",
+    "Debug": true
+  },
+  "Agent": {
+    "Type": "kata",
+    "Debug": true,
+    "Trace": false,
+    "TraceMode": "",
+    "TraceType": ""
+  },
+  "Host": {
+    "Kernel": "4.19.90-vhulk2001.1.0.0026.aarch64",
+    "Architecture": "arm64",
+    "Distro": {
+      "Name": "iSoft Server OS",
+      "Version": "5.1"
+    },
+    "CPU": {
+      "Vendor": "3rd Party Limited",
+      "Model": "v8"
+    },
+    "VMContainerCapable": true,
+    "SupportVSocks": true
+  },
+  "Netmon": {
+    "Version": "kata-netmon version 1.7.0",
+    "Path": "/usr/bin/kata-netmon",
+    "Debug": true,
+    "Enable": true
+  }
+},
+"boot-times-nonet" : {
+	"Results": [
+			{
+		"total": {
+			"Result": 1.763,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.985,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.372698,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.612302,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.778,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.668,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.896,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.371101,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.524899,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.771,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.657,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.907,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.371795,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.535205,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.749,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.623,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.890,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.361401,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.528599,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.732,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.686,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.908,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.371198,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.536802,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.777,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.679,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.904,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.380037,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.523963,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.775,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.731,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.918,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.372446,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.545554,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.812,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.731,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.921,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.368120,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.552880,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.809,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.639,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 0.887,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.365036,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.521964,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.752,
+			"Units" : "s"
+		}
+	},
+	{
+		"total": {
+			"Result": 1.794,
+			"Units" : "s"
+		},
+		"to-workload": {
+			"Result": 1.035,
+			"Units" : "s"
+		},
+		"in-kernel": {
+			"Result": 0.367882,
+			"Units" : "s"
+		},
+		"to-kernel": {
+			"Result": 0.667118,
+			"Units" : "s"
+		},
+		"to-quit": {
+			"Result": 0.759,
+			"Units" : "s"
+		}
+	}
+	]
+	}
+}

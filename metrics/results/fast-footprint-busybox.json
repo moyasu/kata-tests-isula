@@ -1,0 +1,216 @@
+{
+	"@timestamp" : 1585123748672,
+	"env" : {
+		"RuntimeVersion": "1.7.0",
+		"RuntimeCommit": "bc241b095f95e734066dd2797374e567a5915f14",
+		"RuntimeConfig": "/usr/share/defaults/kata-containers/configuration.toml",
+		"Hypervisor": "/usr/bin/qemu-kvm",
+		"HypervisorVersion": "  QEMU emulator version 4.0.1 (qemu-4.0.1-11.oe1)\nCopyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers",
+		"Proxy": "/usr/bin/kata-proxy",
+		"ProxyVersion": "1.7.0-a5c8cf7945995d382a5b721c4bf82a82ba1259ae",
+		"Shim": "/usr/bin/kata-shim",
+		"ShimVersion": "  kata-shim version 1.7.0-d5e39b0fe54ad5c0d75d564229da5c91a7057e38",
+		"machinename": "isuladtest"
+	},
+	"date" : {
+		"ns": 1585123748694628707,
+		"Date": "2020-03-25T08:09:08.700"
+	},
+	"test" : {
+		"runtime": "kata-runtime",
+		"testname": "fast-footprint-busybox"
+	},
+	"kata-env" :
+	{
+  "Meta": {
+    "Version": "1.0.23"
+  },
+  "Runtime": {
+    "Version": {
+      "Semver": "1.7.0",
+      "Commit": "bc241b095f95e734066dd2797374e567a5915f14",
+      "OCI": "1.0.1-dev"
+    },
+    "Config": {
+      "Path": "/usr/share/defaults/kata-containers/configuration.toml"
+    },
+    "Debug": true,
+    "Trace": false,
+    "DisableGuestSeccomp": true,
+    "DisableNewNetNs": false,
+    "Experimental": null,
+    "Path": "/usr/bin/kata-runtime"
+  },
+  "Hypervisor": {
+    "MachineType": "virt",
+    "Version": "QEMU emulator version 4.0.1 (qemu-4.0.1-11.oe1)\nCopyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers",
+    "Path": "/usr/bin/qemu-kvm",
+    "BlockDeviceDriver": "virtio-scsi",
+    "EntropySource": "/dev/urandom",
+    "Msize9p": 8192,
+    "MemorySlots": 10,
+    "Debug": true,
+    "UseVSock": false,
+    "SharedFS": "virtio-9p"
+  },
+  "Image": {
+    "Path": ""
+  },
+  "Kernel": {
+    "Path": "/var/lib/kata/kernel",
+    "Parameters": "agent.log=debug agent.log=debug pcie_ports=native pci=pcie_bus_perf"
+  },
+  "Initrd": {
+    "Path": "/var/lib/kata/kata-containers-initrd.img"
+  },
+  "Proxy": {
+    "Type": "kataProxy",
+    "Version": "kata-proxy version 1.7.0-a5c8cf7945995d382a5b721c4bf82a82ba1259ae",
+    "Path": "/usr/bin/kata-proxy",
+    "Debug": true
+  },
+  "Shim": {
+    "Type": "kataShim",
+    "Version": "kata-shim version 1.7.0-d5e39b0fe54ad5c0d75d564229da5c91a7057e38",
+    "Path": "/usr/bin/kata-shim",
+    "Debug": true
+  },
+  "Agent": {
+    "Type": "kata",
+    "Debug": true,
+    "Trace": false,
+    "TraceMode": "",
+    "TraceType": ""
+  },
+  "Host": {
+    "Kernel": "4.19.90-vhulk2001.1.0.0026.aarch64",
+    "Architecture": "arm64",
+    "Distro": {
+      "Name": "iSoft Server OS",
+      "Version": "5.1"
+    },
+    "CPU": {
+      "Vendor": "3rd Party Limited",
+      "Model": "v8"
+    },
+    "VMContainerCapable": true,
+    "SupportVSocks": true
+  },
+  "Netmon": {
+    "Version": "kata-netmon version 1.7.0",
+    "Path": "/usr/bin/kata-netmon",
+    "Debug": true,
+    "Enable": true
+  }
+},
+"fast-footprint-busybox" : {
+	"Config": [
+			{
+		"testname": "fast-footprint-busybox",
+		"payload": "busybox",
+		"payload_args": "tail -f /dev/null",
+		"payload_runtime_args": " -m 2G",
+		"payload_sleep": 10,
+		"ksm_settle_time": 300,
+		"num_containers": 200,
+		"parallelism": 10,
+		"max_memory_consumed": "256*1024*1024*1024",
+		"min_memory_free": "2*1024*1024*1024",
+		"isulad_path": "/usr/bin/isulad",
+		"dump_caches": "1"
+	}
+	],
+	"Results": [
+			{
+				"uss": {
+			"proxy": 0,
+			"shim": 0,
+			"qemu": "0",
+			"virtiofsd": "3010920448",
+			"total": 3010920448,
+			"Units": "KB"
+		},
+		"pss": {
+			"proxy": 0,
+			"shim": 0,
+			"qemu": "0",
+			"virtiofsd": "3378959360",
+			"total": 3378959360,
+			"Units": "KB"
+		},
+		"all_pss": {
+			"pss": 3378082816,
+			"Units": "KB"
+		},
+		"dockerd": {
+			"pss": 36155392,
+			"Units": "KB"
+		},
+		"user_smem": {
+			"userspace": 3371630592,
+			"Units": "KB"
+		},
+		"system": {
+			"avail": 505795837952,
+			"avail_decr": -365363200,
+			"cached": 1198260224,
+			"smem_free": 532860502016,
+			"free_decr": 528778592256,
+			"anon": 2770075648,
+			"mapped": 587661312,
+			"meminfo_cached": 680853504,
+			"Units": "KB"
+		},
+		"slab": {
+			"slab": 2399797248,
+			"Units": "KB"
+		}
+	},
+	{
+				"uss": {
+			"proxy": 1941176320,
+			"shim": 2403270656,
+			"qemu": "95617024000",
+			"virtiofsd": "104486469632",
+			"total": 204447940608,
+			"Units": "KB"
+		},
+		"pss": {
+			"proxy": 1947041792,
+			"shim": 2411667456,
+			"qemu": "95621578752",
+			"virtiofsd": "104880391168",
+			"total": 204860679168,
+			"Units": "KB"
+		},
+		"all_pss": {
+			"pss": 104882509824,
+			"Units": "KB"
+		},
+		"dockerd": {
+			"pss": 53909504,
+			"Units": "KB"
+		},
+		"user_smem": {
+			"userspace": 104871886848,
+			"Units": "KB"
+		},
+		"system": {
+			"avail": 401672765440,
+			"avail_decr": 103757709312,
+			"cached": 1866072064,
+			"smem_free": 428494618624,
+			"free_decr": 427278336000,
+			"anon": 104264171520,
+			"mapped": 615120896,
+			"meminfo_cached": 1256062976,
+			"Units": "KB"
+		},
+		"slab": {
+			"slab": 2790522880,
+			"Units": "KB"
+		}
+	}
+	]
+	}
+}

@@ -1,0 +1,15 @@
+; Kata metrics auto generated fio job file
+[global]
+directory=/testdir
+filename=fio-randread
+rw=read
+numjobs=4
+time_based=1
+runtime=60
+ramp_time=0
+invalidate=1
+fallocate=none
+[file1]
+size=1G
+ioengine=libaio
+iodepth=16

@@ -1,0 +1,185 @@
+{
+	"@timestamp" : 1585133611677,
+	"env" : {
+		"RuntimeVersion": "1.7.0",
+		"RuntimeCommit": "bc241b095f95e734066dd2797374e567a5915f14",
+		"RuntimeConfig": "/usr/share/defaults/kata-containers/configuration.toml",
+		"Hypervisor": "/usr/bin/qemu-kvm",
+		"HypervisorVersion": "  QEMU emulator version 4.0.1 (qemu-4.0.1-11.oe1)\nCopyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers",
+		"Proxy": "/usr/bin/kata-proxy",
+		"ProxyVersion": "1.7.0-a5c8cf7945995d382a5b721c4bf82a82ba1259ae",
+		"Shim": "/usr/bin/kata-shim",
+		"ShimVersion": "  kata-shim version 1.7.0-d5e39b0fe54ad5c0d75d564229da5c91a7057e38",
+		"machinename": "isuladtest"
+	},
+	"date" : {
+		"ns": 1585133611682567075,
+		"Date": "2020-03-25T10:53:31.688"
+	},
+	"test" : {
+		"runtime": "kata-runtime",
+		"testname": "memory footprint"
+	},
+	"kata-env" :
+	{
+  "Meta": {
+    "Version": "1.0.23"
+  },
+  "Runtime": {
+    "Version": {
+      "Semver": "1.7.0",
+      "Commit": "bc241b095f95e734066dd2797374e567a5915f14",
+      "OCI": "1.0.1-dev"
+    },
+    "Config": {
+      "Path": "/usr/share/defaults/kata-containers/configuration.toml"
+    },
+    "Debug": true,
+    "Trace": false,
+    "DisableGuestSeccomp": true,
+    "DisableNewNetNs": false,
+    "Experimental": null,
+    "Path": "/usr/bin/kata-runtime"
+  },
+  "Hypervisor": {
+    "MachineType": "virt",
+    "Version": "QEMU emulator version 4.0.1 (qemu-4.0.1-11.oe1)\nCopyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers",
+    "Path": "/usr/bin/qemu-kvm",
+    "BlockDeviceDriver": "virtio-scsi",
+    "EntropySource": "/dev/urandom",
+    "Msize9p": 8192,
+    "MemorySlots": 10,
+    "Debug": true,
+    "UseVSock": false,
+    "SharedFS": "virtio-9p"
+  },
+  "Image": {
+    "Path": ""
+  },
+  "Kernel": {
+    "Path": "/var/lib/kata/kernel",
+    "Parameters": "agent.log=debug agent.log=debug pcie_ports=native pci=pcie_bus_perf"
+  },
+  "Initrd": {
+    "Path": "/var/lib/kata/kata-containers-initrd.img"
+  },
+  "Proxy": {
+    "Type": "kataProxy",
+    "Version": "kata-proxy version 1.7.0-a5c8cf7945995d382a5b721c4bf82a82ba1259ae",
+    "Path": "/usr/bin/kata-proxy",
+    "Debug": true
+  },
+  "Shim": {
+    "Type": "kataShim",
+    "Version": "kata-shim version 1.7.0-d5e39b0fe54ad5c0d75d564229da5c91a7057e38",
+    "Path": "/usr/bin/kata-shim",
+    "Debug": true
+  },
+  "Agent": {
+    "Type": "kata",
+    "Debug": true,
+    "Trace": false,
+    "TraceMode": "",
+    "TraceType": ""
+  },
+  "Host": {
+    "Kernel": "4.19.90-vhulk2001.1.0.0026.aarch64",
+    "Architecture": "arm64",
+    "Distro": {
+      "Name": "iSoft Server OS",
+      "Version": "5.1"
+    },
+    "CPU": {
+      "Vendor": "3rd Party Limited",
+      "Model": "v8"
+    },
+    "VMContainerCapable": true,
+    "SupportVSocks": true
+  },
+  "Netmon": {
+    "Version": "kata-netmon version 1.7.0",
+    "Path": "/usr/bin/kata-netmon",
+    "Debug": true,
+    "Enable": true
+  }
+},
+"memory-footprint" : {
+	"Config": [
+			{
+		"containers": 10,
+		"ksm": 0,
+		"auto": "",
+		"waittime": 60,
+		"image": "busybox",
+		"command": "sh"
+	}
+	],
+	"Results": [
+			{
+		"average": {
+			"Result": 371885.16,
+			"Units" : "KB"
+		},
+		"qemus": {
+			"Result": 358542.60,
+			"Units" : "KB"
+		},
+		"virtiofsds": {
+			"Result": 0,
+			"Units" : "KB"
+		},
+		"shims": {
+			"Result": 12371.60,
+			"Units" : "KB"
+		},
+		"proxys": {
+			"Result": 970.96,
+			"Units" : "KB"
+		}
+	}
+	],
+	"Raw results": [
+			{
+		"qemu-kvm memory": [
+			209973,
+			210101,
+			210229,
+			210357,
+			210421,
+			210485,
+			211381,
+			695157,
+			708021,
+			709301
+			
+		],
+		"kata-shim memory": [
+			12122,
+			12314,
+			12314,
+			12378,
+			12378,
+			12378,
+			12378,
+			12442,
+			12506,
+			12506
+			
+		],
+		"kata-proxy memory": [
+			9268,
+			9588,
+			9588,
+			9652,
+			9716,
+			9716,
+			9780,
+			9844,
+			9908,
+			10036
+			
+		]
+	}
+	]
+	}
+}
